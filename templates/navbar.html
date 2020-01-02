@@ -1,0 +1,24 @@
+<!-- Navbar begin //-->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-2">
+  <!-- 網站標誌 -->
+  <div class="navbar-brand"><i class="far fa-address-card"></i> 數位助理</div>
+  <!-- 在小螢幕的設備上顯示可展開/收合導覽選單的按鈕 -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- 導覽列選單內容(可收合) -->
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      {% if user.is_authenticated %}
+      <li class="nav-item"><a href="/" class="nav-link"><i class="fas fa-book"></i> 日記</a></li>
+      <li class="nav-item"><a href="/journal/create" class="nav-link"><i class="fas fa-edit"></i> 寫日誌</a></li>
+      <li class="nav-item"><a href="/expenses" class="nav-link"><i class="fas fa-money-check"></i> 帳本</a></li>
+      <li class="nav-item"><a href="/expenses/create" class="nav-link"><i class="fas fa-money-check-alt"></i> 記帳</a></li>
+      <li class="nav-item"><a href="/accounts/logout" class="nav-link btn btn-sm btn-primary">{{ user.username }} <i class="fas fa-sign-out-alt"></i> 登出</a></li>
+      {% else %}
+      <li class="nav-item"><a href="/accounts/login" class="nav-link btn btn-sm btn-primary"><i class="fas fa-sign-in-alt"></i> 登入</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+<!-- Navbar end //-->
